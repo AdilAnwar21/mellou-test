@@ -1,34 +1,20 @@
 var menuIcon = document.getElementById('menu-icon');
 var isDisplaying = false;
-
-// Function to toggle the display of the navbar
-function toggleNavbar() {
-    var popMenu = document.getElementById('navbar');
+menuIcon.onclick= function(){
+    var popMenu = document.getElementById('navbar')
     popMenu.style.zIndex = "1000";
-    if (!isDisplaying) {
+    if(!isDisplaying){
         popMenu.style.display = "block";
-        menuIcon.classList.replace("fa-bars", "fa-x");
+        menuIcon.classList.replace("fa-bars","fa-x");
         isDisplaying = true;
-    } else {
-        popMenu.style.display = "none";
+    }else{
+        popMenu.style.display = "none"
         menuIcon.classList.replace("fa-x", "fa-bars");
         isDisplaying = false;
+    
     }
+    
 }
-
-// Toggle navbar when menu icon is clicked
-menuIcon.onclick = toggleNavbar;
-
-// Close navbar when a link is clicked
-var navbarLinks = document.querySelectorAll('#navbar a');
-navbarLinks.forEach(function (link) {
-    link.addEventListener('click', function () {
-        var popMenu = document.getElementById('navbar');
-        popMenu.style.display = "none";
-        menuIcon.classList.replace("fa-x", "fa-bars");
-        isDisplaying = false;
-    });
-});
 
 
 // Add this JavaScript code
