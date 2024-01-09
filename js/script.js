@@ -1,20 +1,67 @@
+// var menuIcon = document.getElementById('menu-icon');
+// var isDisplaying = false;
+// var popMenu = document.getElementById('navbar')
+// menuIcon.onclick= function(){
+    
+//     popMenu.style.zIndex = "1000";
+//     if(!isDisplaying){
+//         popMenu.style.display = "block";
+//         menuIcon.classList.replace("fa-bars","fa-x");
+//         isDisplaying = true;
+//         // var navMenu = document.querySelectorAll('#navbar a');
+//         // navMenu.forEach(function(link) {
+//         //     link.addEventListener('click', function() {
+//         //         console.log("hello");
+//         // });
+//         // isDisplaying = false
+//         // });
+//     }else{
+//         popMenu.style.display = "none"
+//         menuIcon.classList.replace("fa-x", "fa-bars");
+//         isDisplaying = false;
+    
+//     }
+    
+// }
+
 var menuIcon = document.getElementById('menu-icon');
 var isDisplaying = false;
-menuIcon.onclick= function(){
-    var popMenu = document.getElementById('navbar')
+var popMenu = document.getElementById('navbar');
+var links = document.querySelectorAll('#navbar a');
+
+menuIcon.onclick = function () {
     popMenu.style.zIndex = "1000";
-    if(!isDisplaying){
+    if (!isDisplaying) {
         popMenu.style.display = "block";
-        menuIcon.classList.replace("fa-bars","fa-x");
+        menuIcon.classList.replace("fa-bars", "fa-x");
         isDisplaying = true;
-    }else{
-        popMenu.style.display = "none"
+    } else {
+        popMenu.style.display = "none";
         menuIcon.classList.replace("fa-x", "fa-bars");
         isDisplaying = false;
-    
     }
-    
-}
+};
+
+// Close the navbar when a link is pressed
+links.forEach(function (link) {
+    link.addEventListener('click', function () {
+        // Check if the window width is less than or equal to 768 pixels (adjust as needed)
+        if (window.innerWidth <= 840) {
+            popMenu.style.display = 'none';
+            menuIcon.classList.replace("fa-x", "fa-bars");
+            isDisplaying = false;
+        }
+    });
+});
+
+// Optional: Close the navbar when the window is resized beyond a certain width
+window.addEventListener('resize', function () {
+    if (window.innerWidth > 768) {
+        popMenu.style.display = 'block';
+    }
+});
+
+
 
 
 // Add this JavaScript code
