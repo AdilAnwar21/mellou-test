@@ -42,6 +42,12 @@ menuIcon.onclick = function () {
     }
 };
 
+//code to get the preloader
+var preloader = document.getElementById('preloader')
+function myFunction(){
+    preloader.style.display = 'none';
+}
+
 // Close the navbar when a link is pressed
 links.forEach(function (link) {
     link.addEventListener('click', function () {
