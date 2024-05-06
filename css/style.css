@@ -711,6 +711,13 @@ header nav a:hover{
     text-align: center; */
 }
 
+.faq_list{
+    height: 450px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    text-align: center;
+}
+
 .faq h1{
     color: #000;
     text-align: center;
