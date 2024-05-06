@@ -235,4 +235,55 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 });
 
+document.addEventListener("DOMContentLoaded", function() {
+    const imageGrid = document.querySelector('.partner-something .partners-grid');
+    
+    // Clone the first two images and append them to the end to create a loop effect
+    const clone1 = imageGrid.children[0].cloneNode(true);
+    const clone2 = imageGrid.children[1].cloneNode(true);
+    imageGrid.appendChild(clone1);
+    imageGrid.appendChild(clone2);
+    
+    // Function to scroll images to the left
+    function scrollLeft() {
+        const scrollAmount = 200; // Adjust as needed
+        imageGrid.style.transform = `translateX(-${scrollAmount}px)`;
+        setTimeout(function() {
+            imageGrid.appendChild(imageGrid.firstElementChild);
+            imageGrid.style.transition = 'none';
+            imageGrid.style.transform = 'translateX(0)';
+            setTimeout(function() {
+                imageGrid.style.transition = 'transform 0.5s ease-in-out';
+            });
+        }, 500); // The time it takes for the transition to complete
+    }
 
+    // Function to scroll images to the right
+    function scrollRight() {
+        const scrollAmount = 250; // Adjust as needed
+        imageGrid.insertBefore(imageGrid.lastElementChild, imageGrid.firstElementChild);
+        imageGrid.style.transition = 'none';
+        imageGrid.style.transform = `translateX(-${scrollAmount}px)`;
+        setTimeout(function() {
+            imageGrid.style.transition = 'transform 0.5s ease-in-out';
+            imageGrid.style.transform = 'translateX(0)';
+        }, 10); // A very short delay to ensure the transition gets applied
+    }
+
+    // Auto-scrolling function
+    function autoScroll() {
+        setInterval(scrollLeft, 3000); // Adjust the interval as needed (3000ms = 3 seconds)
+    }
+
+    // Call autoScroll function to start auto-scrolling
+    autoScroll();
+
+    // Manual scrolling with arrow keys
+    document.addEventListener('keydown', function(event) {
+        if (event.key === 'ArrowLeft') {
+            scrollRight();
+        } else if (event.key === 'ArrowRight') {
+            scrollLeft();
+        }
+    });
+});
