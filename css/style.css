@@ -6,8 +6,8 @@ html{
     top: 0;
     left: 0;
     box-sizing: border-box;
-
 }
+
 #preloader{
     position: fixed;
     width: 100%;
@@ -794,6 +794,7 @@ header nav a:hover{
 /*footer*/
 footer img{
     width: 100%;
+    /* bottom: auto; */
 }
 
 /* backtotop button  */
@@ -815,6 +816,7 @@ footer img{
 @media (max-width:550px) {
     .back-to-top{
         left: 85%;
+        /* top: 85%; */
     }
 }
 
