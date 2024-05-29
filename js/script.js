@@ -28,6 +28,7 @@ var menuIcon = document.getElementById('menu-icon');
 var isDisplaying = false;
 var popMenu = document.getElementById('navbar');
 var links = document.querySelectorAll('#navbar a');
+// var scroll = false
 
 menuIcon.onclick = function () {
     popMenu.style.zIndex = "1000";
@@ -71,25 +72,48 @@ window.addEventListener('resize', function () {
 
 
 // Add this JavaScript code
+// document.addEventListener('DOMContentLoaded', function () {
+//     const accordions = document.querySelectorAll('.accordion-item');
+
+//     accordions.forEach(function (accordion) {
+//         accordion.addEventListener('click', function () {
+//             const content = this.nextElementSibling;
+
+//             if (content.style.maxHeight) {
+//                 // Close the accordion
+//                 content.style.maxHeight = null;
+//                 content.style.opacity = 0;
+//             } else {
+//                 // Open the accordion
+//                 content.style.maxHeight = content.scrollHeight + 'px';
+//                 content.style.opacity = 1;
+//             }
+//         });
+//     });
+// });
 document.addEventListener('DOMContentLoaded', function () {
-    const accordions = document.querySelectorAll('.accordion-item');
+    const items = document.querySelectorAll('.item');
 
-    accordions.forEach(function (accordion) {
-        accordion.addEventListener('click', function () {
-            const content = this.nextElementSibling;
+    items.forEach(function (item) {
+        const title = item.querySelector('.title');
+        title.addEventListener('click', function () {
+            // Close all accordions
+            items.forEach(function (otherItem) {
+                if (otherItem !== item) {
+                    otherItem.querySelector('.title').classList.remove('open');
+                    otherItem.querySelector('.content').classList.remove('open');
+                }
+            });
 
-            if (content.style.maxHeight) {
-                // Close the accordion
-                content.style.maxHeight = null;
-                content.style.opacity = 0;
-            } else {
-                // Open the accordion
-                content.style.maxHeight = content.scrollHeight + 'px';
-                content.style.opacity = 1;
-            }
+            // Toggle the clicked accordion
+            const content = item.querySelector('.content');
+            title.classList.toggle('open');
+            content.classList.toggle('open');
         });
     });
 });
+
+
 
 //for carousel
 // JavaScript to handle automatic movement of the carousel

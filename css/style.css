@@ -436,59 +436,50 @@ header nav a:hover{
     width: 70%;
     margin: auto;
     font-family: 'Source Sans Pro', sans-serif;
-    @media (max-width: 768px) {
+  }
+  
+  @media (max-width: 768px) {
+    .wrapper {
       width: 70%;
       padding: 0 0.3rem;
     }
   }
-  input[type='radio'] {
-    display: none;
-    &:checked + .item {
-      .title {
-        color: #fff;
-        border-color: #b78fd1;
-        background-color: #b78fd1;
-        &:after {
-          transform: rotate(180deg);
-        }
-      }
-      .content {
-
-        margin-top: 0.3rem;
-        margin-bottom: 0.3rem;
-        padding: 12px;
-        height: auto;
-        opacity: 1;
-        visibility: visible;
-        transition: all 0.3s, opacity 0.7s;
-      }
-    }
-  }
+  
   .item {
     display: block;
     margin-bottom: 30px;
     margin-top: 26px;
- 
   }
+  
   .title {
     padding: 0.1rem 0.3rem;
     border-radius: 0.3rem;
     color: #b78fd1;
-    border: 1px solid ;
+    border: 1px solid;
     font-weight: bold;
     cursor: pointer;
     transition: all 0.2s;
-    /* color: #fff; */
     display: flex;
     justify-content: space-between;
     align-items: center;
-
-    &:after {
-      content: '\25bc';
-      display: inline-block;
-      font-size: 12px;
-    }
   }
+  
+  .title:after {
+    content: '\25bc';
+    display: inline-block;
+    font-size: 12px;
+  }
+  
+  .title.open {
+    color: #fff;
+    border-color: #b78fd1;
+    background-color: #b78fd1;
+  }
+  
+  .title.open:after {
+    transform: rotate(180deg);
+  }
+  
   .content {
     width: 95%;
     margin: 0 auto;
@@ -497,12 +488,23 @@ header nav a:hover{
     color: #000;
     border: 1px solid;
     border-width: 0 1px;
-
     height: 0;
     opacity: 0;
     visibility: hidden;
-    transition: all 0.2s; 
+    transition: all 0.2s;
   }
+  
+  .content.open {
+    margin-top: 0.3rem;
+    margin-bottom: 0.3rem;
+    padding: 12px;
+    height: auto;
+    opacity: 1;
+    visibility: visible;
+    transition: all 0.3s, opacity 0.7s;
+  }
+  
+  
 
 
 /* testimonial sections  */
@@ -1088,7 +1090,7 @@ footer img {
   }
   
   .open {
-    background-color: #b9ff66;
+    /* background-color: #b9ff66; */
   }
   
   .open .accordions__icon {
