@@ -49,6 +49,7 @@ var preloader = document.getElementById('preloader')
 function myFunction(){
     preloader.style.display = 'none';
     load = true
+
 }
 
 // Close the navbar when a link is pressed
@@ -132,18 +133,19 @@ const sr = ScrollReveal({
     reset : true
 })
 
-const srinverse = ScrollReveal({
-    origin:'bottom',
-    distance:'85px',
-    duration:2500,
-    reset : false
-})
+
 
 const srleft = ScrollReveal({
     origin:'left',
     distance : '85px',
     duration: 2000,
-    reset:false
+    reset:true
+})
+const srinverse = ScrollReveal({
+    origin:'bottom',
+    distance:'85px',
+    duration:2500,
+    reset : false
 })
 
 // const srright = ScrollReveal({
@@ -182,7 +184,7 @@ var slideUp = {
 ScrollReveal().reveal('.signature', slideUp);
 
 
-
+console.log(load,'load')
 if (load == true){
     sr.reveal('.button-nav',{delay:300})
     ScrollReveal().reveal('.containera-images', slideUp);
