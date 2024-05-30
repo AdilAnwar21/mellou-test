@@ -134,14 +134,14 @@ const srinverse = ScrollReveal({
     origin:'bottom',
     distance:'85px',
     duration:2500,
-    reset : true
+    reset : false
 })
 
 const srleft = ScrollReveal({
     origin:'left',
     distance : '85px',
     duration: 2000,
-    reset:true
+    reset:false
 })
 
 // const srright = ScrollReveal({
