@@ -28,6 +28,7 @@ var menuIcon = document.getElementById('menu-icon');
 var isDisplaying = false;
 var popMenu = document.getElementById('navbar');
 var links = document.querySelectorAll('#navbar a');
+var laod = false
 // var scroll = false
 
 menuIcon.onclick = function () {
@@ -47,6 +48,7 @@ menuIcon.onclick = function () {
 var preloader = document.getElementById('preloader')
 function myFunction(){
     preloader.style.display = 'none';
+    laod = true
 }
 
 // Close the navbar when a link is pressed
@@ -154,7 +156,7 @@ const srleft = ScrollReveal({
 //delicacy-text
 
 sr.reveal ('.delicacy-text',{delay:300});
-sr.reveal('.button-nav',{delay:300})
+
 srleft.reveal('.top-image',{delay:250})
 srinverse.reveal('.item',{delay:350})
 sr.reveal('.right-side',{delay:350})
@@ -168,15 +170,23 @@ srinverse.reveal('.testimonail-head')
 
 
 
+
+
 var slideUp = {
     distance: '100%',
     origin: 'bottom',
     opacity: null
 };
 
-ScrollReveal().reveal('.containera-images', slideUp);
+
 ScrollReveal().reveal('.signature', slideUp);
 
+
+
+if (laod == true){
+    sr.reveal('.button-nav',{delay:300})
+    ScrollReveal().reveal('.containera-images', slideUp);
+}
 
 //delay for each image logo
 const sr2 = ScrollReveal();
