@@ -28,7 +28,7 @@ var menuIcon = document.getElementById('menu-icon');
 var isDisplaying = false;
 var popMenu = document.getElementById('navbar');
 var links = document.querySelectorAll('#navbar a');
-var laod = false
+var load = false
 // var scroll = false
 
 menuIcon.onclick = function () {
@@ -48,7 +48,7 @@ menuIcon.onclick = function () {
 var preloader = document.getElementById('preloader')
 function myFunction(){
     preloader.style.display = 'none';
-    laod = true
+    load = true
 }
 
 // Close the navbar when a link is pressed
@@ -183,7 +183,7 @@ ScrollReveal().reveal('.signature', slideUp);
 
 
 
-if (laod == true){
+if (load == true){
     sr.reveal('.button-nav',{delay:300})
     ScrollReveal().reveal('.containera-images', slideUp);
 }
