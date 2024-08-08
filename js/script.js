@@ -373,6 +373,8 @@ var preloader = document.getElementById('preloader');
                 console.log('load', load, 'in gerrrrr');
                 gsap.from('.button-nav', { y: 85, opacity: 0, duration: 2.5, delay: 0.3, ease: 'power1.out' });
                 gsap.from('.containera-images', { y: '100%', opacity: 0, duration: 2.5, ease: 'power1.out' });
+                gsap.from('.logo', { y: '100%', opacity: 0, duration: 2.5, ease: 'power1.out' });
+            
             }
         }
     
@@ -413,6 +415,26 @@ var preloader = document.getElementById('preloader');
                 content.classList.toggle('open');
             });
         });
+
+        
+
+    
+
+
+        gsap.fromTo('.image-container img',
+            { opacity: 0, scale: 0.8 },
+            { opacity: 1, scale: 1, duration: 2, ease: "power2.out",
+              scrollTrigger: {
+                trigger: '.image-container',
+                start: 'top bottom',
+                end: 'bottom top',
+                
+              }
+            }
+          );
+
+        
+        
     
         gsap.from('.delicacy-text', { 
             y: 85, 
@@ -422,7 +444,8 @@ var preloader = document.getElementById('preloader');
             scrollTrigger: {
                 trigger: '.delicacy-text',
                 start: 'top 85%',
-                toggleActions: 'play none none reverse'
+                toggleActions: 'play none none reverse',
+                
             }
         });
     
