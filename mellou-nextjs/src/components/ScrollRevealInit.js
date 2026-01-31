@@ -48,12 +48,14 @@ export default function ScrollRevealInit() {
                 sr.reveal('.button-nav', { delay: 300 });
                 ScrollReveal().reveal('.containera-images', slideUp);
 
-                // Image grid reveals
-                const sr2 = ScrollReveal();
-                sr2.reveal('.image-grid img:nth-child(1)', { delay: 200, duration: 800 });
-                sr2.reveal('.image-grid img:nth-child(2)', { delay: 400, duration: 800 });
-                sr2.reveal('.image-grid img:nth-child(3)', { delay: 600, duration: 800 });
-                sr2.reveal('.image-grid img:nth-child(4)', { delay: 800, duration: 800 });
+                // Image grid reveals - only on desktop to avoid issues with mobile carousel
+                if (window.innerWidth > 768) {
+                    const sr2 = ScrollReveal();
+                    sr2.reveal('.image-grid img:nth-child(1)', { delay: 200, duration: 800 });
+                    sr2.reveal('.image-grid img:nth-child(2)', { delay: 400, duration: 800 });
+                    sr2.reveal('.image-grid img:nth-child(3)', { delay: 600, duration: 800 });
+                    sr2.reveal('.image-grid img:nth-child(4)', { delay: 800, duration: 800 });
+                }
 
                 // Contact section reveals
                 const srContact = ScrollReveal({

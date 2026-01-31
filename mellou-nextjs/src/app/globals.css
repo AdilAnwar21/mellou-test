@@ -262,7 +262,7 @@ header nav a:hover {
     font-size: 30px;
     color: #000;
     vertical-align: middle;
-    display: none;
+    display: none !important;
     cursor: pointer;
 }
 
@@ -318,12 +318,11 @@ header nav a:hover {
     }
 
     .menu-icon {
-        display: inline;
+        display: inline !important;
         margin: auto;
-
     }
 
-    .navbar {
+    #navbar {
         position: absolute;
         top: 10%;
         left: 0;
@@ -337,7 +336,7 @@ header nav a:hover {
         display: none;
     }
 
-    .navbar a {
+    #navbar a {
         display: block;
         font-size: 1.1rem;
         margin: 1.5rem;
@@ -1942,5 +1941,50 @@ footer img {
         width: 40px;
         height: 40px;
         font-size: 16px;
+    }
+}
+
+@keyframes popup {
+    0% {
+        opacity: 0;
+        transform: scale(0.5);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@media (max-width: 768px) {
+    .image-grid {
+        display: flex !important;
+        flex-wrap: nowrap !important;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        justify-content: flex-start !important;
+        padding-bottom: 20px;
+        -webkit-overflow-scrolling: touch;
+        /* Smooth scrolling on iOS */
+    }
+
+    .image-grid img {
+        flex: 0 0 70% !important;
+        width: 70% !important;
+        scroll-snap-align: center;
+        margin-right: 15px;
+        margin-bottom: 0 !important;
+    }
+
+    /* Hide scrollbar for cleaner look */
+    .image-grid::-webkit-scrollbar {
+        display: none;
+    }
+
+    .image-grid {
+        -ms-overflow-style: none;
+        /* IE and Edge */
+        scrollbar-width: none;
+        /* Firefox */
     }
 }

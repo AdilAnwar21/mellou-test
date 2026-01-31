@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { navLinks } from "@/data/staticData";
 
 export default function Header() {
@@ -16,9 +16,27 @@ export default function Header() {
         }
     };
 
+    useEffect(() => {
+        const handleResize = () => {
+            if (window.innerWidth > 850) {
+                setIsMenuOpen(false);
+            }
+        };
+
+        window.addEventListener('resize', handleResize);
+        return () => window.removeEventListener('resize', handleResize);
+    }, []);
+
     return (
         <header>
-            <nav className="navbar" id="navbar" style={{ display: isMenuOpen ? "block" : "" }}>
+            <nav
+                className="navbar"
+                id="navbar"
+                style={{
+                    display: isMenuOpen ? "block" : "",
+                    zIndex: isMenuOpen ? "1000" : ""
+                }}
+            >
                 {navLinks.map((link, index) => (
                     <a
                         key={index}
