@@ -2,7 +2,7 @@
 // // var isDisplaying = false;
 // // var popMenu = document.getElementById('navbar')
 // // menuIcon.onclick= function(){
-    
+
 // //     popMenu.style.zIndex = "1000";
 // //     if(!isDisplaying){
 // //         popMenu.style.display = "block";
@@ -19,9 +19,9 @@
 // //         popMenu.style.display = "none"
 // //         menuIcon.classList.replace("fa-x", "fa-bars");
 // //         isDisplaying = false;
-    
+
 // //     }
-    
+
 // // }
 
 // var menuIcon = document.getElementById('menu-icon');
@@ -275,13 +275,13 @@
 
 // // document.addEventListener("DOMContentLoaded", function() {
 // //     const imageGrid = document.querySelector('.partner-something .partners-grid');
-    
+
 // //     // Clone the first two images and append them to the end to create a loop effect
 // //     const clone1 = imageGrid.children[0].cloneNode(true);
 // //     const clone2 = imageGrid.children[1].cloneNode(true);
 // //     imageGrid.appendChild(clone1);
 // //     imageGrid.appendChild(clone2);
-    
+
 // //     // Function to scroll images to the left
 // //     function scrollLeft() {
 // //         const scrollAmount = 200; // Adjust as needed
@@ -349,7 +349,14 @@ menuIcon.onclick = function () {
 // Code to get the preloader
 var preloader = document.getElementById('preloader');
 function myFunction() {
-    preloader.style.display = 'none';
+    // Add fade-out class for smooth transition
+    preloader.classList.add('fade-out');
+
+    // Remove from DOM after animation completes
+    setTimeout(function () {
+        preloader.style.display = 'none';
+    }, 500);
+
     load = true;
     console.log(load, 'load');
     // Run scroll reveal animations after load is complete
@@ -473,6 +480,20 @@ srFooter.reveal('.footer img', {
     }
 });
 
+// Contact Section Reveal
+const srContact = ScrollReveal({
+    origin: 'bottom',
+    distance: '50px',
+    duration: 1000,
+    easing: 'ease-in-out',
+    reset: false
+});
+
+srContact.reveal('.contact-title', { delay: 200 });
+srContact.reveal('.contact-subtitle', { delay: 300 });
+srContact.reveal('.contact-info-card', { delay: 400 });
+srContact.reveal('.contact-form', { delay: 500 });
+
 document.addEventListener("DOMContentLoaded", function () {
     var backToTopButton = document.getElementById("backToTopBtn");
 
@@ -489,5 +510,36 @@ document.addEventListener("DOMContentLoaded", function () {
         document.body.scrollTop = 0; // For Safari
         document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE, and Opera
     });
+});
+
+// Contact Form Handler
+document.addEventListener("DOMContentLoaded", function () {
+    const contactForm = document.getElementById('contactForm');
+
+    if (contactForm) {
+        contactForm.addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            // Get form values
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const phone = document.getElementById('phone').value;
+            const message = document.getElementById('message').value;
+
+            // Simple validation
+            if (name && email && message) {
+                // Show success message
+                alert('Thank you for contacting us! We will get back to you soon.');
+
+                // Reset form
+                contactForm.reset();
+
+                // You can add actual form submission logic here
+                // For example, sending data to a server via fetch/AJAX
+            } else {
+                alert('Please fill in all required fields.');
+            }
+        });
+    }
 });
 
